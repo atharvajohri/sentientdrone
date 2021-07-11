@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/LinearLayout02"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <Button-->
+<!--                android:onClick="onClickStart"-->
+<!--                android:id="@+id/buttonBegin"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/begin"-->
+<!--                tools:layout_editor_absoluteX="16dp"-->
+<!--                tools:layout_editor_absoluteY="85dp" />-->
+
+<!--        </LinearLayout>-->
+
+<!--&lt;!&ndash;        <com.google.android.material.slider.Slider&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/Motor1Speed"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="40dip"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:valueFrom="0.0"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:valueTo="100.0" />&ndash;&gt;-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textViewTitle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:text="@string/serial_port"-->
+<!--            android:textAppearance="?android:attr/textAppearanceLarge"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="34dp"-->
+<!--            android:background="#FFFFFF"-->
+<!--            android:scrollbars="vertical"-->
+<!--            android:gravity="bottom" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/editText1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignLeft="@+id/textView1"-->
+<!--            android:layout_alignRight="@+id/textView1"-->
+<!--            android:layout_below="@+id/textView1"-->
+<!--            android:layout_marginTop="28dp"-->
+<!--            android:ems="10"-->
+<!--            android:layout_alignStart="@+id/textView1"-->
+<!--            android:layout_alignEnd="@+id/textView1">-->
+
+<!--            <requestFocus/>-->
+<!--        </EditText>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/buttonSend"-->
+<!--            style="?borderlessButtonStyle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignLeft="@+id/editText1"-->
+<!--            android:layout_alignRight="@+id/editText1"-->
+<!--            android:layout_below="@+id/editText1"-->
+<!--            android:layout_marginTop="42dp"-->
+<!--            android:text="@string/send"-->
+<!--            android:layout_alignStart="@+id/editText1"-->
+<!--            android:layout_alignEnd="@+id/editText1" />-->
+
+<!--    </RelativeLayout>-->
+<!--    <include-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        layout="@layout/serial_monitor" />-->
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingBottom="@dimen/activity_vertical_margin" android:paddingLeft="@dimen/activity_horizontal_margin" android:paddingRight="@dimen/activity_horizontal_margin" android:paddingTop="@dimen/activity_vertical_margin" app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:context="serialmonitor.arduino.serialmonitor.MainActivity" tools:showIn="@layout/activity_serial_monitor">
+        <Button android:id="@+id/btOpen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:onClick="onClickOpen" android:text="Open"/>
+        <Button android:id="@+id/btWrite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onClickWrite" android:text="Send" android:layout_below="@+id/btClose" android:layout_alignEnd="@+id/SCROLLER_ID"/>
+        <EditText android:id="@+id/etWrite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBottom="@+id/btWrite" android:layout_alignLeft="@+id/SCROLLER_ID" android:ems="10" android:singleLine="true" android:layout_toStartOf="@+id/btWrite"/>
+        <Button android:id="@+id/btClose" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onClickClose" android:text="Close" android:layout_alignTop="@+id/btOpen" android:layout_alignEnd="@+id/SCROLLER_ID"/>
+        <ScrollView android:id="@+id/SCROLLER_ID" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_below="@+id/btWrite" android:fillViewport="true" android:scrollbars="vertical" android:layout_above="@+id/spinner">
+            <TextView android:id="@+id/tvRead" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignLeft="@+id/etWrite" android:layout_alignParentBottom="true" android:layout_below="@+id/btWrite"/>
+        </ScrollView>
+        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Autoscroll" android:id="@+id/autoscroll" android:layout_alignParentBottom="true" android:layout_alignParentStart="true" android:layout_marginBottom="45dp"/>
+        <Spinner android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/spBaud" android:entries="@array/baud_arrays" android:prompt="@string/baud_prompt" android:layout_alignBottom="@+id/autoscroll" android:layout_toEndOf="@+id/autoscroll"/>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

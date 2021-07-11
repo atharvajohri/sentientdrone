@@ -1,0 +1,2 @@
+rootProject.name = "Sentient Drone 2"
+include ':app'
